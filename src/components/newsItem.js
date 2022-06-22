@@ -2,23 +2,22 @@ import React from "react";
 
 function newsItem({ items }) {
   return (
-    <div className="section-center">
+    <div className="row container container_adjust">
       {items.map((catchnews) => {
-        const { id, title, urlToImage, content, url, author, date } = catchnews;
-
+        const { id, title, urlToImage, url, author, date, category } = catchnews;
+    
         return (
+          <a className="col-md-3" href={url}>
           <div className="card width_card" key={id}>
-            <img src={urlToImage} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">{title}</h5>
-              <label className="author_style">{author}</label>
-              <p className="card-text">{content}</p>
-              <a href={url} className="btn btn-primary newsitem_button">
-                Read More
-              </a>
-              <span className="date_design"><b className="date_color">Dated:</b>{date}</span>
+            <img src={urlToImage} className="card-img-top img_height" alt="..." />
+            <span className="category_newsitem">{category}</span>
+            <div className="card-body body_card">
+              <h5 className="card-title title_card">{title}</h5>
+              <p className="author_style">{author}</p>
+              <p className="date_design">{date}</p>
             </div>
           </div>
+          </a>
         );
       })}
     </div>
